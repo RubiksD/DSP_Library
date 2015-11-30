@@ -4,13 +4,14 @@
 
 int main()
 {
-	int num[]={1,1,1,1,1,1,1,1};
+	double num[]={0.0088,0.0263,0.0263,0.0088,1,1,1,1};
+	double den[]={1,-2.2343,1.8758,-0.5713,1,1,1,1};
 	int N=4;
 	int points=1000;
 
 	double response[points];
 
-	FIR_Freq_Res(num,N,points,response);
+	IIR_Freq_Res(num,den,N,points,response);
 
 	double w=0;
 	int i;

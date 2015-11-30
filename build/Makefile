@@ -18,6 +18,7 @@ SRC_COMMON = 	$(SRC_PATH)/fft.c\
 
 SRC_PATH_FREQ_RESP = $(SRC_PATH)/Frequency_Response
 SRC_FREQ_RESP = $(SRC_PATH_FREQ_RESP)/FIR_Freq_Res.c\
+								$(SRC_PATH_FREQ_RESP)/IIR_Freq_Res.c\
 								$(SRC_PATH)/main.c
 
 FLAGS += $(INCLUDE) $(PRE_COMPILATION_FLAGS)
