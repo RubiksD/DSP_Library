@@ -11,8 +11,8 @@ typedef LP_Filter_Spec_s{
 	double ripple_stop;			//Del-s Stopband less than (Ds) > H(jw)
 	double ripple_pass_db;
 	double ripple_stop_db;
-	double ripple_pass_norm; //1/sqrt(1+(esp^2));
-	double ripple_stop_norm; //1/A
+	double eps; //1/sqrt(1+(eps^2)) = (1-2*Dp);
+	double A; //1/A = Ds
 	double selectivity_parameter;		// omega_pass_ana/omega_stop_ana
-	double discrimination_parameter;// esp/sqrt((A^2)-1)
+	double discrimination_parameter;// eps/sqrt((A^2)-1)
 }LP_Filter_Spac_t;

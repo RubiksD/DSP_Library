@@ -1,7 +1,13 @@
 #include <math.h>
 #include <complex.h>
 #include "Butterworth_Filter.h"
+#include "Filter_Dsg.h"
 
+int Get_Butterworth_Order(LP_Filter_Spac_t Filter_g)
+{
+	
+
+}
 
 void Butterworth_Filter(int N, double complex coeff[])
 {

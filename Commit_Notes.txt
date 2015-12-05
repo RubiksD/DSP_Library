@@ -15,3 +15,6 @@ Commit Number:5
 
 Commit Number:6
 	-Low pass filter structure
+
+Commit Number:7
+	-Created filter design folder
