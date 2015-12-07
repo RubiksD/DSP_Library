@@ -11,20 +11,26 @@ SRC_PATH = ../src
 PRE_COMPILATION_FLAGS = -Wall -O3 -g
 POST_COMPILATION_FLAGS = -lm
 OUTPUT1 = Frequency_Response
+OUTPUT2 = Butterworth
 INCLUDE = -I ../include
 
-SRC_COMMON = 	$(SRC_PATH)/fft.c\
-							$(SRC_PATH)/cordic.c
-
 SRC_PATH_FREQ_RESP = $(SRC_PATH)/Frequency_Response
+SRC_PATH_FILTER_DSG = $(SRC_PATH)/Filter_Dsg
 SRC_FREQ_RESP = $(SRC_PATH_FREQ_RESP)/FIR_Freq_Res.c\
 								$(SRC_PATH_FREQ_RESP)/IIR_Freq_Res.c\
 								$(SRC_PATH)/main.c
+
+SRC_FITER_DSG = $(SRC_PATH)/main.c\
+								$(SRC_PATH_FILTER_DSG)/Filter_Dsg.c\
+								$(SRC_PATH_FILTER_DSG)/Butterworth_Filter.c
 
 FLAGS += $(INCLUDE) $(PRE_COMPILATION_FLAGS)
 
 freq_res:	clean
 	$(CC) $(FLAGS) $(SRC_FREQ_RESP) -o $(OUTPUT1).out $(POST_COMPILATION_FLAGS)
+
+butterworth:	clean
+	$(CC) $(FLAGS) $(SRC_FITER_DSG) -o $(OUTPUT1).out $(POST_COMPILATION_FLAGS)
 
 
 fft:	clean
@@ -36,12 +42,6 @@ sin_wave:	clean
 	$(CC) $(FLAGS) $(SRC2) -o $(OUTPUT2).out $(POST_COMPILATION_FLAGS)
 	$(NM) -n $(OUTPUT2).out > $(OUTPUT2).map
 	$(OD) -S $(OUTPUT2).out > $(OUTPUT2).asm
-
-library:	clean
-	$(CC) $(SRC_COMMON) -c $(FLAGS)
-	$(AR) $(AR_FLAGS) cordic_fft.a *.o
-	$(RANLIB) cordic_fft.a
-	cp -f cordic_fft.a ../lib
 
 clean:
 	rm -f *.map

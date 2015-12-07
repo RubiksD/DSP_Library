@@ -1,7 +1,7 @@
 // Generalized filter spec structure
 
 
-typedef LP_Filter_Spec_s{
+typedef struct LP_Filter_Spec_s{
 	double omega_pass_ana;
 	double omega_stop_ana;
 	double F_sampl;
@@ -15,4 +15,5 @@ typedef LP_Filter_Spec_s{
 	double A; //1/A = Ds
 	double selectivity_parameter;		// omega_pass_ana/omega_stop_ana
 	double discrimination_parameter;// eps/sqrt((A^2)-1)
-}LP_Filter_Spac_t;
+	int Order;
+}LP_Filter_Spec_t;

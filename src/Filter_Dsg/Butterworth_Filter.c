@@ -3,10 +3,10 @@
 #include "Butterworth_Filter.h"
 #include "Filter_Dsg.h"
 
-int Get_Butterworth_Order(LP_Filter_Spac_t Filter_g)
+int Get_Butterworth_Order(LP_Filter_Spec_t *Filter_p)
 {
-	
-
+	Filter_p->Order = log10(1/(Filter_p->discrimination_parameter))/log10(1/(Filter_p->selectivity_parameter));
+	return Filter_p->Order;
 }
 
 void Butterworth_Filter(int N, double complex coeff[])
