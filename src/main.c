@@ -36,9 +36,9 @@ int main()
 	Butterworth_Filter.omega_stop_ana =40000;
 	Butterworth_Filter.F_sampl = 12000;
 	Butterworth_Filter.ripple_pass = 0.00115;
-	Butterworth_Filter.ripple_stop = 0.003162;
+	Butterworth_Filter.ripple_stop = 0.0003162;
 	Estimate_LP_params_from_ripple(&Butterworth_Filter);
 	printf("%lf \t %lf",Butterworth_Filter.ripple_pass_db,Butterworth_Filter.ripple_stop_db);
-	
+	Get_Butterworth_Order(&Butterworth_Filter);
 	return 0;
 }
