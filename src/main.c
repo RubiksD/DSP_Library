@@ -32,13 +32,17 @@ int main()
 int main()
 {
 	LP_Filter_Spec_t Butterworth_Filter;
-	Butterworth_Filter.omega_pass_ana =4000;
-	Butterworth_Filter.omega_stop_ana =40000;
+	Butterworth_Filter.omega_pass_ana =1000;
+	Butterworth_Filter.omega_stop_ana =5000;
 	Butterworth_Filter.F_sampl = 12000;
+	Butterworth_Filter.ripple_pass_db = 1;
+	Butterworth_Filter.ripple_stop_db = -40;
 	Butterworth_Filter.ripple_pass = 0.00115;
 	Butterworth_Filter.ripple_stop = 0.0003162;
-	Estimate_LP_params_from_ripple(&Butterworth_Filter);
-	printf("%lf \t %lf",Butterworth_Filter.ripple_pass_db,Butterworth_Filter.ripple_stop_db);
-	Get_Butterworth_Order(&Butterworth_Filter);
+	Estimate_LP_params_from_ripple_db(&Butterworth_Filter);
+	printf("%lf\t%lf\n",Butterworth_Filter.discrimination_parameter,Butterworth_Filter.selectivity_parameter);
+	printf("%lf \t %lf\n",Butterworth_Filter.eps*Butterworth_Filter.eps,Butterworth_Filter.A);
+	int N=Get_Butterworth_Order(&Butterworth_Filter);
+	printf("N = %d\n",N);
 	return 0;
 }

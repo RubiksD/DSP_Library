@@ -18,6 +18,8 @@ typedef struct LP_Filter_Spec_s{
 	double discrimination_parameter;// eps/sqrt((A^2)-1)
 	int Order;
 }LP_Filter_Spec_t;
+
 void Estimate_LP_params_from_ripple(LP_Filter_Spec_t *Filter_p);
+void Estimate_LP_params_from_ripple_db(LP_Filter_Spec_t *Filter_p);
 
 #endif

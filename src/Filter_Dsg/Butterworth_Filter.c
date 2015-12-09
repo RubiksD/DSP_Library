@@ -4,7 +4,10 @@
 
 int Get_Butterworth_Order(LP_Filter_Spec_t *Filter_p)
 {
-	Filter_p->Order = log10(1/(Filter_p->discrimination_parameter))/log10(1/(Filter_p->selectivity_parameter));
+	double Order;
+	
+	Order = (log10(1/(Filter_p->discrimination_parameter))/log10(1/(Filter_p->selectivity_parameter)));
+	Filter_p->Order = (Order - ((int)Order))?(((int)(Order))+1):(int)Order;
 	return Filter_p->Order;
 }
 
