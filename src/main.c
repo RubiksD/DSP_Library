@@ -32,11 +32,11 @@ int main()
 int main()
 {
 	LP_Filter_Spec_t Butterworth_Filter;
-	Butterworth_Filter.omega_pass_ana =1000;
-	Butterworth_Filter.omega_stop_ana =5000;
+	Butterworth_Filter.omega_pass =2*M_PI*1000;
+	Butterworth_Filter.omega_stop =2*M_PI*5000;
 	Butterworth_Filter.F_sampl = 12000;
 	Butterworth_Filter.ripple_pass_db = 1;
-	Butterworth_Filter.ripple_stop_db = -40;
+	Butterworth_Filter.ripple_stop_db = 40;
 	Butterworth_Filter.ripple_pass = 0.00115;
 	Butterworth_Filter.ripple_stop = 0.0003162;
 	Estimate_LP_params_from_ripple_db(&Butterworth_Filter);

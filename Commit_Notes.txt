@@ -31,3 +31,5 @@ Commit Number:10
 Commit Number:11
 	-Estimating filter params from ripple in db
 
+Commit Number:12
+	-Bug fix in computing selectivity param

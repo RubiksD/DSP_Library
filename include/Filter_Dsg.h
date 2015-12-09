@@ -3,8 +3,8 @@
 #define FILTER_DSG_H
 
 typedef struct LP_Filter_Spec_s{
-	double omega_pass_ana;
-	double omega_stop_ana;
+	double omega_pass;	// Analog passband egde frequrncy in radian/sec
+	double omega_stop;	// Analog stopband egde frequrncy in radian/sec
 	double F_sampl;
 	double omega_pass_d;
 	double omega_stop_d;
