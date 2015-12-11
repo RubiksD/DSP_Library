@@ -11,7 +11,7 @@ int Get_Butterworth_Order(LP_Filter_Spec_t *Filter_p)
 	return Filter_p->Order;
 }
 
-void Butterworth_Filter(int N, double complex coeff[])
+void Butterworth_Filter_roots(int N, double complex coeff[])
 {
 	int i;
 	for(i=1;i<=N;i++){

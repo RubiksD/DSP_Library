@@ -32,6 +32,8 @@ int main()
 int main()
 {
 	LP_Filter_Spec_t Butterworth_Filter;
+	double complex Butterworth_roots[10];
+
 	Butterworth_Filter.omega_pass =2*M_PI*1000;
 	Butterworth_Filter.omega_stop =2*M_PI*5000;
 	Butterworth_Filter.F_sampl = 12000;
@@ -43,6 +45,14 @@ int main()
 	printf("%lf\t%lf\n",Butterworth_Filter.discrimination_parameter,Butterworth_Filter.selectivity_parameter);
 	printf("%lf \t %lf\n",Butterworth_Filter.eps*Butterworth_Filter.eps,Butterworth_Filter.A);
 	int N=Get_Butterworth_Order(&Butterworth_Filter);
+	
 	printf("N = %d\n",N);
+
+	Butterworth_Filter_roots(N,Butterworth_roots);
+
+	int i;
+	for(i=0;i<N;i++){
+		printf("%lf\t%lf\n",creal(Butterworth_roots[i]),cimag(Butterworth_roots[i]));
+	}
 	return 0;
 }
