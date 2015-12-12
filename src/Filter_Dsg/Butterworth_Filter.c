@@ -11,10 +11,11 @@ int Get_Butterworth_Order(LP_Filter_Spec_t *Filter_p)
 	return Filter_p->Order;
 }
 
-void Butterworth_Filter_roots(int N, double complex coeff[])
+void Butterworth_Filter_roots(LP_Filter_Spec_t *Filter_p, double complex coeff[])
 {
 	int i;
+	int N = Filter_p->Order;
 	for(i=1;i<=N;i++){
-		coeff[i-1]=cexp(I*M_PI*(N+(2*i)-1)/(2*N));
+		coeff[i-1]=Filter_p->omega_pass*cexp(I*M_PI*(N+(2*i)-1)/(2*N));
 	}
 }

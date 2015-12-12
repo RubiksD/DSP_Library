@@ -48,7 +48,7 @@ int main()
 	
 	printf("N = %d\n",N);
 
-	Butterworth_Filter_roots(N,Butterworth_roots);
+	Butterworth_Filter_roots(&Butterworth_Filter,Butterworth_roots);
 
 	int i;
 	for(i=0;i<N;i++){
