@@ -31,13 +31,70 @@ void ZP2NumDen(double complex *Zeros,int N_Z, double complex *Poles,int N_P,doub
 {
 	double complex temp1_Num[N_P], temp2_Num[N_P];
 	double complex *temp1,*temp2;
-	int i;
+	int i,j;
 	for(i=0;i<N_P;i++){
 		if(i==0){
 			temp1_Num[0]=1;
-			temp1_Num[1]=Poles[0];
+			temp1_Num[1]=-Poles[0];
 		}else{
-//			if()
+			if((i%2)==0){
+				temp1=temp2_Num;
+				temp2=temp1_Num;
+			}else{
+				temp2=temp2_Num;
+				temp1=temp1_Num;
+			}
+			for(j=0;j<=(i+1);j++){
+				if(j==0){
+					temp2[0] = temp1[0]*1;
+				}else if(j==(i+1)){
+					temp2[j]= -(temp1[j-1]*Poles[i]);
+				}else{
+					temp2[j]= (temp1[j]*1)-(temp1[j-1]*Poles[i]);
+				}
+			}
 		}
+
+	}
+	for(i=0;i<=N_P;i++){
+		if((N_P%2)==0){
+			temp1=temp2_Num;
+		}else{
+			temp1=temp1_Num;
+		}
+		Den[i]=creal(temp1[i]);
+	}
+
+	for(i=0;i<N_Z;i++){
+		if(i==0){
+			temp1_Num[0]=1;
+			temp1_Num[1]=-Zeros[0];
+		}else{
+			if((i%2)==0){
+				temp1=temp2_Num;
+				temp2=temp1_Num;
+			}else{
+				temp2=temp2_Num;
+				temp1=temp1_Num;
+			}
+			for(j=0;j<=(i+1);j++){
+				if(j==0){
+					temp2[0] = temp1[0]*1;
+				}else if(j==(i+1)){
+					temp2[j]= -(temp1[j-1]*Zeros[i]);
+				}else{
+					temp2[j]= (temp1[j]*1)-(temp1[j-1]*Zeros[i]);
+				}
+			}
+		}
+
+	}
+	for(i=0;i<=N_Z;i++){
+		if((N_Z%2)==0){
+			temp1=temp2_Num;
+		}else{
+			temp1=temp1_Num;
+		}
+		Den[i]=creal(temp1[i]);
 	}
 }

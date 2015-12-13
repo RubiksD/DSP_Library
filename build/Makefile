@@ -22,24 +22,19 @@ SRC_FREQ_RESP = $(SRC_PATH_FREQ_RESP)/FIR_Freq_Res.c\
 
 SRC_FITER_DSG = $(SRC_PATH)/main.c\
 								$(SRC_PATH_FILTER_DSG)/Filter_Dsg.c\
-								$(SRC_PATH_FILTER_DSG)/Butterworth_Filter.c
+								$(SRC_PATH_FILTER_DSG)/Butterworth_Filter.c\
+								$(SRC_PATH_FREQ_RESP)/FIR_Freq_Res.c\
+								$(SRC_PATH_FREQ_RESP)/IIR_Freq_Res.c
 
 FLAGS += $(INCLUDE) $(PRE_COMPILATION_FLAGS)
 
 freq_res:	clean
 	$(CC) $(FLAGS) $(SRC_FREQ_RESP) -o $(OUTPUT1).out $(POST_COMPILATION_FLAGS)
-
-butterworth:	clean
-	$(CC) $(FLAGS) $(SRC_FITER_DSG) -o $(OUTPUT1).out $(POST_COMPILATION_FLAGS)
-
-
-fft:	clean
-	$(CC) $(FLAGS) $(SRC1) -o $(OUTPUT1).out $(POST_COMPILATION_FLAGS)
 	$(NM) -n $(OUTPUT1).out > $(OUTPUT1).map
 	$(OD) -S $(OUTPUT1).out > $(OUTPUT1).asm
 
-sin_wave:	clean
-	$(CC) $(FLAGS) $(SRC2) -o $(OUTPUT2).out $(POST_COMPILATION_FLAGS)
+butterworth:	clean
+	$(CC) $(FLAGS) $(SRC_FITER_DSG) -o $(OUTPUT2).out $(POST_COMPILATION_FLAGS)
 	$(NM) -n $(OUTPUT2).out > $(OUTPUT2).map
 	$(OD) -S $(OUTPUT2).out > $(OUTPUT2).asm
 

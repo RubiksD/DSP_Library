@@ -41,4 +41,7 @@ Commit Number:14
 	-Setting butterworth cutoff at passband edge
 
 Commit Number:15
-	Started on generating polynomial coefficients from poles
+	-Started on generating polynomial coefficients from poles
+
+Commit Number:16
+	-Finished generating polynomial coefficients from poles

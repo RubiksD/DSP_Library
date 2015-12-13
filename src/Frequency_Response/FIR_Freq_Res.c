@@ -9,7 +9,7 @@ void	FIR_Freq_Res_mag(double *num,int N,int points,double *response)
 	for(w=0,j=0;w< 2*PI; w= w+(2*PI/points)){
 		Z = 0;
 		for(i=0;i<N;i++){
-			Z += (num[i]*cexp(-I*w*i));
+			Z += (num[i]*cexp(-I*w*(N-i-1)));
 		}
 		response[j++] = cabs(Z);
 
@@ -24,7 +24,7 @@ void	FIR_Freq_Res_phase(double *num,int N,int points,double *response)
 	for(w=0,j=0;w< 2*PI; w= w+(2*PI/points)){
 		Z = 0;
 		for(i=0;i<N;i++){
-			Z += (num[i]*cexp(-I*w*i));
+			Z += (num[i]*cexp(-I*w*(N-i-1)));
 		}
 		response[j++] = atan(cimag(Z)/creal(Z));
 
