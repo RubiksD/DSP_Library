@@ -45,3 +45,6 @@ Commit Number:15
 
 Commit Number:16
 	-Finished generating polynomial coefficients from poles
+
+Commit Number:17
+	-Updated Readme
