@@ -42,8 +42,8 @@ int main()
 	Butterworth_Filter.ripple_pass = 0.00115;
 	Butterworth_Filter.ripple_stop = 0.0003162;
 #else
-	Butterworth_Filter.omega_pass =1;
-	Butterworth_Filter.omega_stop =10;
+	Butterworth_Filter.omega_pass =100;
+	Butterworth_Filter.omega_stop =1000;
 	Butterworth_Filter.F_sampl = 12000;
 	Butterworth_Filter.ripple_pass_db = 3;
 	Butterworth_Filter.ripple_stop_db = 45;
@@ -72,11 +72,11 @@ int main()
 			printf("%lf \n",den[i]);
 		}
 	}
-#if 0
-	double num[10]={0,0,0,1,0,0,0,0,0,0};
+#if 1
+	double num[10]={0,0,0,1000000,0,0,0,0,0,0};
 	int points = 1024;
 	double response[points];
-	IIR_Freq_Res_mag(num,den,N+1,points,response);
+	CT_Freq_Res_mag(num,den,N+1,points,response,100000);
 	double w=0;
 	for(i=0;i<points;i++){
 		printf("%lf\t%lf\t%lf\n",w,response[i],20*log10(response[i]));

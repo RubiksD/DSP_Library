@@ -16,15 +16,13 @@ INCLUDE = -I ../include
 
 SRC_PATH_FREQ_RESP = $(SRC_PATH)/Frequency_Response
 SRC_PATH_FILTER_DSG = $(SRC_PATH)/Filter_Dsg
-SRC_FREQ_RESP = $(SRC_PATH_FREQ_RESP)/FIR_Freq_Res.c\
-								$(SRC_PATH_FREQ_RESP)/IIR_Freq_Res.c\
+SRC_FREQ_RESP = $(SRC_PATH_FREQ_RESP)/Freq_Res.c\
 								$(SRC_PATH)/main.c
 
 SRC_FITER_DSG = $(SRC_PATH)/main.c\
 								$(SRC_PATH_FILTER_DSG)/Filter_Dsg.c\
 								$(SRC_PATH_FILTER_DSG)/Butterworth_Filter.c\
-								$(SRC_PATH_FREQ_RESP)/FIR_Freq_Res.c\
-								$(SRC_PATH_FREQ_RESP)/IIR_Freq_Res.c
+								$(SRC_PATH_FREQ_RESP)/Freq_Res.c
 
 FLAGS += $(INCLUDE) $(PRE_COMPILATION_FLAGS)
 
