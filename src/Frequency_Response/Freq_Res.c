@@ -55,33 +55,23 @@ void	IIR_Freq_Res_phase(double *num,double *den,int N,int points,double *respons
 	}
 }
 #include <stdio.h>
-void CT_Freq_Res_mag(double *num,double *den,int N,int points,double *response,double fmax)
+void CT_Freq_Res_mag(double *num,double *den,int N,int points,double *response,double Wmax)
 {
-	double response_num[points];
-	double response_den[points];
+	double complex response_num[points];
+	double complex response_den[points];
 	double w;
 	int i,j;
 	double complex S;
-	for(i=0;i<N;i++){
-		printf("%lf\n",num[i]);
-	}
-	for(i=0;i<N;i++){
-		printf("%lf\n",den[i]);
-	}
-	for(w=0,j=0;w< 2*PI*fmax; w= w+((2*PI*fmax)/points)){
+	for(w=0,j=0;w< Wmax; w= w+(Wmax/points)){
 		S = 1;
-		for(i=0;i<N;i++){
-			 response_num[j] += (num[N-1-i]*S);
-			 response_den[j] += (den[N-1-i]*S);
-			 
-		printf("num=%lf\n",num[N-1-i]);
-		printf("den=%lf\n",den[N-1-i]);
-		printf("%lf\t%lf\t%lf\n",num[N-1-i],creal(response_num[j]),cimag(response_num[j]));
-		printf("%lf\t%lf\t%lf\n",den[N-1-i],creal(response_den[j]),cimag(response_den[j]));
+		response_num[j] = 0;
+		response_den[j] = 0;
+		for(i=N-1;i>=0;i--){
+			response_num[j] += (num[i]*S);
+			response_den[j] += (den[i]*S);
 			S *= I*w;
 		}
 		response[j] = cabs(response_num[j]/response_den[j]);
-		printf("Res = %lf\t%lf\t%lf\t%lf\n",w,cabs(response_den[j]),cabs(response_num[j]),response[j]);
 		j++;
 
 	}
