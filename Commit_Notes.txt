@@ -54,3 +54,6 @@ Commit Number:18
 
 Commit Number:19
 	-Bug fix in CT Freq resp
+
+Commit Number:20
+	-Bug fix in ZP2NumDen

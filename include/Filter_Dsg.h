@@ -24,6 +24,6 @@ typedef struct LP_Filter_Spec_s{
 
 void Estimate_LP_params_from_ripple(LP_Filter_Spec_t *Filter_p);
 void Estimate_LP_params_from_ripple_db(LP_Filter_Spec_t *Filter_p);
-void ZP2NumDen(double complex *Zeros,int N_Z, double complex *Poles,int N_P,double *Num, double *Den);
+void ZP2NumDen(double complex *Zeros,int N_Z, double complex *Poles,int N_P,double K,double *Num, double *Den);
 
 #endif
