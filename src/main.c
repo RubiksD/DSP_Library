@@ -63,7 +63,7 @@ int main()
 	}
 
 	double den[10];
-	ZP2NumDen(Butterworth_roots,N,Butterworth_roots,N,den,den);
+	ZP2NumDen(Butterworth_roots,N,Butterworth_roots,1,N,den,den);
 	for(i=0;i<=N;i++){
 		if(i!=N){
 			printf("s^%d %lf ",N-i,den[i]);

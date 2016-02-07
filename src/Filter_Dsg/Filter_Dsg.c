@@ -27,7 +27,15 @@ void Estimate_LP_params_from_ripple_db(LP_Filter_Spec_t *Filter_p)
 
 }
 
-void ZP2NumDen(double complex *Zeros,int N_Z, double complex *Poles,int N_P,double K,double *Num, double *Den)
+void ZP2NumDen(
+	double complex *Zeros,
+	int N_Z, 
+	double complex *Poles,
+	int N_P,
+	double K,
+	double *Num, 
+	double *Den
+								)
 {
 	double complex temp1_Num[N_P], temp2_Num[N_P];
 	double complex *temp1,*temp2;
