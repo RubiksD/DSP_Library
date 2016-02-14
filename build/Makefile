@@ -9,7 +9,7 @@ AR_FLAGS = rc
 
 SRC_PATH = ../src
 PRE_COMPILATION_FLAGS = -Wall -O3 -g
-POST_COMPILATION_FLAGS = -lm
+POST_COMPILATION_FLAGS = -lm -L../lib -lcordic_fft
 INCLUDE = -I ../include
 
 OUTPUT1 = Frequency_Response
@@ -47,8 +47,7 @@ butterworth:	clean
 	$(OD) -S    $(OUTPUT2).out > $(OUTPUT2).asm
 
 interpolate_decimate: clean
-	cp ../lib/cordic_fft.a ../include/libcordic_fft.a
-	$(CC) $(FLAGS) $(SRC_INT_DEC) -o $(OUTPUT3).out $(POST_COMPILATION_FLAGS) -L../include -lcordic_fft
+	$(CC) $(FLAGS) $(SRC_INT_DEC) -o $(OUTPUT3).out $(POST_COMPILATION_FLAGS)
 	$(NM) -n -S $(OUTPUT3).out > $(OUTPUT3).map
 	$(OD) -S    $(OUTPUT3).out > $(OUTPUT3).asm
 
