@@ -66,3 +66,6 @@ Commit Number:22
 
 Commit Number:23
 	-Makefile update for fft lib
+
+Commit Number:24
+	-Added piecewise linear function for FIR
